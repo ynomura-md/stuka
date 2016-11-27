@@ -1,0 +1,20 @@
+= stuka
+
+== startup
+
+```
+./sbt
+```
+
+== misc
+
+* Build.scala vs build.sbt
++
+http://tototoshi.hatenablog.com/entry/20111022/1319287253
+* sbtの導入
++
+```
+wget https://raw.githubusercontent.com/paulp/sbt-extras/master/sbt
+chmod u+x sbt
+./sbt
+```

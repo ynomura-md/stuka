@@ -1,0 +1,8 @@
+{
+  "main": "scala:jp.supership.stuka.service.HogeServiceVerticle",
+  "options": {
+    "config": {
+      "address": "hogeservice.product"
+    }
+  }
+}

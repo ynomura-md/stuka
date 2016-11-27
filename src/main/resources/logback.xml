@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+<!--
+    <if condition='property("application.environment").startsWith("staging") || property("application.environment").startsWith("production")'>
+        <then>
+            <include resource="logback-file.xml"/>
+            <include resource="logback-smtp.xml"/>
+        </then>
+        <else>
+            <include resource="logback-stdout.xml"/>
+        </else>
+    </if>
+
+    <if condition='property("application.environment").startsWith("production") || property("application.environment").startsWith("staging")'>
+        <then>
+            <property name="logLevel" value="INFO" />
+        </then>
+        <else>
+            <property name="logLevel" value="DEBUG" />
+        </else>
+    </if>
+
+-->
+    <include resource="logback-stdout.xml"/>
+    <property name="logLevel" value="DEBUG" />
+    <logger name="com.hazelcast.internal.monitors.HealthMonitor" additivity="false" level="INFO">
+        <appender-ref ref="HazelcastHealthMonitor"/>
+    </logger>
+
+    <logger name="io.netty" additivity="true" level="INFO"/>
+    <logger name="javax.management" additivity="true" level="INFO"/>
+    <logger name="javax.mail" additivity="true" level="WARN"/>
+    <logger name="com.hazelcast" additivity="true" level="INFO" />
+    <logger name="com.zaxxer.hikari" additivity="true" level="DEBUG" />
+    <logger name="slick" additivity="true" level="INFO" />
+    <logger name="slick.jdbc" additivity="true" level="${logLevel}" />
+    <logger name="slick.jdbc.StatementInvoker.result" additivity="true" level="INFO" />
+    <logger name="slick.jdbc.JdbcBackend.benchmark" additivity="true" level="INFO" />
+
+    <root level="${logLevel}">
+        <appender-ref ref="Application"/>
+        <appender-ref ref="ApplicationAll"/>
+    </root>
+
+</configuration>
